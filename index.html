@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>تحدي الصور</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22 role=%22img%22 aria-label=%22%D8%AA%D8%AD%D8%AF%D9%8A %D8%A7%D9%84%D8%B5%D9%88%D8%B1%22%3E%3Crect x=%2214%22 y=%2214%22 width=%22108%22 height=%22108%22 rx=%2222%22 fill=%22%2314121F%22/%3E%3Crect x=%226%22 y=%226%22 width=%22108%22 height=%22108%22 rx=%2222%22 fill=%22%237B2FF7%22 stroke=%22%2314121F%22 stroke-width=%226%22/%3E%3Cg transform=%22rotate(-8 56 54)%22%3E%3Crect x=%2222%22 y=%2220%22 width=%2266%22 height=%2270%22 rx=%226%22 fill=%22%23FFF6D6%22 stroke=%22%2314121F%22 stroke-width=%225%22/%3E%3Crect x=%2229%22 y=%2227%22 width=%2252%22 height=%2240%22 fill=%22%23FFD23F%22 stroke=%22%2314121F%22 stroke-width=%224%22/%3E%3Ccircle cx=%2266%22 cy=%2238%22 r=%227%22 fill=%22%23FF5D8F%22 stroke=%22%2314121F%22 stroke-width=%223%22/%3E%3Cpath d=%22M29 67 L45 45 L56 59 L64 50 L81 67 Z%22 fill=%22%232EC4B6%22 stroke=%22%2314121F%22 stroke-width=%224%22 stroke-linejoin=%22round%22/%3E%3Crect x=%2232%22 y=%2274%22 width=%2230%22 height=%226%22 rx=%223%22 fill=%22%2314121F%22/%3E%3C/g%3E%3Crect x=%2282%22 y=%2258%22 width=%2214%22 height=%228%22 fill=%22%2314121F%22/%3E%3Ccircle cx=%2289%22 cy=%2289%22 r=%2221%22 fill=%22%23FFD23F%22 stroke=%22%2314121F%22 stroke-width=%225%22/%3E%3Cpath d=%22M89 89 L89 75 M89 89 L99 95%22 stroke=%22%2314121F%22 stroke-width=%225%22 stroke-linecap=%22round%22/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;800;900&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
@@ -92,13 +92,22 @@ kbd{display:inline-block;background:var(--y);border:3px solid var(--ink);padding
 .qr{display:block;margin:14px auto;border:4px solid var(--ink);background:#fff;width:min(320px,80vw);height:auto;image-rendering:pixelated;box-shadow:6px 6px 0 var(--ink)}
 #scanner{position:fixed;inset:0;z-index:50;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#fff;font-weight:800;font-size:20px;text-align:center;padding:12px}
 #scv{max-width:94vw;max-height:68vh;border:4px solid var(--y)}
+#wheel .wl{display:flex;gap:28px;align-items:center;justify-content:center;flex-wrap:wrap}
+#wOrder{list-style:none;margin:0;padding:0;min-width:230px;max-height:62vh;overflow:auto}
+#wOrder li{background:var(--paper);border:4px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:6px 14px;margin:0 4px 12px 0;font-weight:900;font-size:clamp(18px,3vw,26px);animation:pop .35s}
+#wOrder li b{display:inline-block;background:var(--p);color:#fff;border:3px solid var(--ink);min-width:36px;text-align:center;margin-inline-end:10px}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+.catbar{position:absolute;top:0;inset-inline:0;z-index:2;background:var(--ink);color:var(--y);font-weight:900;font-size:clamp(18px,3vw,32px);text-align:center;padding:4px 8px}
+.catbar.flash{animation:fl .9s}
+@keyframes fl{0%{background:var(--pink);color:var(--ink);transform:scale(1.04)}100%{background:var(--ink);color:var(--y);transform:none}}
+.brand{display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap;margin-bottom:6px}.brand .title{margin:10px 0 26px}.logo{width:92px;height:92px;flex:none}
 [hidden]{display:none!important}
 </style>
 </head>
 <body>
 
 <main id="setup" class="wrap">
-  <h1 class="title">تحدي الصور</h1>
+  <div class="brand"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="تحدي الصور"><rect x="14" y="14" width="108" height="108" rx="22" fill="#14121F"/><rect x="6" y="6" width="108" height="108" rx="22" fill="#7B2FF7" stroke="#14121F" stroke-width="6"/><g transform="rotate(-8 56 54)"><rect x="22" y="20" width="66" height="70" rx="6" fill="#FFF6D6" stroke="#14121F" stroke-width="5"/><rect x="29" y="27" width="52" height="40" fill="#FFD23F" stroke="#14121F" stroke-width="4"/><circle cx="66" cy="38" r="7" fill="#FF5D8F" stroke="#14121F" stroke-width="3"/><path d="M29 67 L45 45 L56 59 L64 50 L81 67 Z" fill="#2EC4B6" stroke="#14121F" stroke-width="4" stroke-linejoin="round"/><rect x="32" y="74" width="30" height="6" rx="3" fill="#14121F"/></g><rect x="82" y="58" width="14" height="8" fill="#14121F"/><circle cx="89" cy="89" r="21" fill="#FFD23F" stroke="#14121F" stroke-width="5"/><path d="M89 89 L89 75 M89 89 L99 95" stroke="#14121F" stroke-width="5" stroke-linecap="round"/></svg><h1 class="title">تحدي الصور</h1></div>
 
   <section class="box">
     <h2>الفرق</h2>
@@ -164,6 +173,7 @@ kbd{display:inline-block;background:var(--y);border:3px solid var(--ink);padding
     <div class="box"><div class="rinfo" id="rInfo"></div><div class="rans" id="rAns"></div></div>
     <div class="ctl"><button type="button" id="bROk">صحيح ✓</button><button type="button" id="bRSkip">تخطي</button></div>
     <button class="btn" type="button" id="bRGo" style="width:100%;margin-top:14px">ابدأ</button>
+    <button class="btn" type="button" id="bRNext" style="width:100%;margin-top:14px" hidden>الفئة الجاية ⏭</button>
   </section>
 </main>
 
@@ -175,9 +185,12 @@ kbd{display:inline-block;background:var(--y);border:3px solid var(--ink);padding
 
 <section id="wheel" hidden>
   <div class="wt" id="whT"></div>
-  <div class="wbox"><canvas id="wc" width="700" height="700"></canvas><div class="ptr"></div></div>
+  <div class="wl">
+    <div class="wbox" id="wbox"><canvas id="wc" width="700" height="700"></canvas><div class="ptr"></div></div>
+    <ol id="wOrder"></ol>
+  </div>
   <div id="whRes"></div>
-  <div class="row"><button class="btn go" type="button" id="spinBtn">دوّر العجلة</button><button class="btn" type="button" id="whBack">رجوع</button></div>
+  <div class="row"><button class="btn go" type="button" id="spinBtn">دوّر العجلة</button><button class="btn go" type="button" id="goBtn" hidden>ابدأ اللعب ▶</button><button class="btn" type="button" id="whBack">رجوع</button></div>
 </section>
 
 <section id="game" hidden>
@@ -186,6 +199,7 @@ kbd{display:inline-block;background:var(--y);border:3px solid var(--ink);padding
     <div class="clock" id="c1"><div><div class="nm" id="gn1"></div><div class="sc" id="gs1"></div></div><div class="tm" id="gt1"></div></div>
   </div>
   <div class="stage" id="stage">
+    <div class="catbar" id="catBar" hidden></div>
     <img id="pic" alt="" hidden>
     <div class="emo" id="emo" hidden></div>
     <div class="veil show" id="veil"><div class="big" id="veilTxt"></div></div>
@@ -259,7 +273,7 @@ kbd{display:inline-block;background:var(--y);border:3px solid var(--ink);padding
     box.querySelectorAll('.cards').forEach(function(r,i){r.scrollLeft=old[i]||0});
   }
   var MODE='wheel';
-  seg('modeSeg',['wheel','mix'],MODE,function(v){return v==='wheel'?'عجلة تختار الفئة':'خلط الفئات المختارة'},function(v){MODE=v});
+  seg('modeSeg',['wheel','mix'],MODE,function(v){return v==='wheel'?'عجلة كترتب الفئات':'خلط الفئات المختارة'},function(v){MODE=v});
   renderChips();
 
   $("pick").onchange=function(e){
@@ -306,23 +320,41 @@ kbd{display:inline-block;background:var(--y);border:3px solid var(--ink);padding
     if(it.emoji){pic.hidden=true;emo.hidden=false;emo.textContent=it.emoji}
     else{emo.hidden=true;pic.hidden=false;pic.src=it.src}
   }
+  function catLabel(){
+    var c=S.seq[S.ci],b=$('catBar');
+    if(!c||!c.name){b.hidden=true;return}
+    b.hidden=false;b.textContent='📂 '+c.name+(S.seq.length>1?'  ('+(S.ci+1)+'/'+S.seq.length+')':'');
+    b.classList.remove('flash');void b.offsetWidth;b.classList.add('flash');
+  }
+  function nextCat(){
+    if(!S.seq||S.ci>=S.seq.length-1){beep(300,.15);return false}
+    S.ci++;S.items=S.seq[S.ci].items;S.i=0;showItem();catLabel();beep(990,.12);return true;
+  }
   function next(){
     S.i++;
-    if(S.i>=S.items.length){S.items=shuffle(S.items.slice());S.i=0}
+    if(S.i>=S.items.length){
+      if(S.ci<S.seq.length-1){nextCat();return}
+      S.items=shuffle(S.items.slice());S.i=0;
+    }
     showItem();
   }
   function veil(txt){$("veilTxt").textContent=txt;$("veil").classList.toggle("show",!!txt)}
 
-  function begin(chosen){
-    var pool=[];
-    Object.keys(cats).forEach(function(n){if(chosen?n===chosen:sel[n])pool=pool.concat(cats[n])});
-    if(!pool.length){$("err").textContent="اختار فئة وحدة على الأقل.";return}
+  function begin(seq){
+    var list;
+    if(seq&&seq.length)list=seq.map(function(n){return {name:n,items:shuffle(cats[n].slice())}});
+    else{
+      var pool=[];Object.keys(cats).forEach(function(n){if(sel[n])pool=pool.concat(cats[n])});
+      list=[{name:"",items:shuffle(pool)}];
+    }
+    if(!list.length||!list[0].items.length){$("err").textContent="اختار فئة وحدة على الأقل.";return}
     $("err").textContent="";
     S.names=[$("n0").value.trim()||"الفريق الأول",$("n1").value.trim()||"الفريق الثاني"];
-    S.t=[TIME,TIME];S.sc=[0,0];S.cur=0;S.items=shuffle(pool);S.i=0;S.phase="ready";
+    S.seq=list;S.ci=0;
+    S.t=[TIME,TIME];S.sc=[0,0];S.cur=0;S.items=list[0].items;S.i=0;S.phase="ready";
     $("gn0").textContent=S.names[0];$("gn1").textContent=S.names[1];
     $("setup").hidden=true;$("end").hidden=true;$("game").hidden=false;
-    showItem();draw();veil(S.names[0]+" كيبدا"+(linked?" — الحكم كيبدا من جوالو":" — ضغط Space باش تبدا"));
+    showItem();catLabel();draw();veil(S.names[0]+" كيبدا"+(linked?" — الحكم كيبدا من جوالو":" — ضغط Space باش تبدا"));
   }
   function run(){S.phase="run";S.last=performance.now();veil("");beep(660,.15)}
   function correct(){S.sc[S.cur]++;S.cur=1-S.cur;S.beepAt=-1;beep(880,.12);setTimeout(function(){beep(1175,.15)},110);next();draw()}
@@ -347,7 +379,7 @@ kbd{display:inline-block;background:var(--y);border:3px solid var(--ink);padding
     if(!names.length){$("err").textContent="اختار فئة وحدة على الأقل.";return}
     $("err").textContent="";
     if(MODE==='wheel'&&names.length>1)openWheel(names);
-    else begin(MODE==='wheel'?names[0]:null);
+    else begin(MODE==='wheel'?[names[0]]:null);
   };
 
   // ---- category wheel ----
@@ -367,30 +399,53 @@ kbd{display:inline-block;background:var(--y);border:3px solid var(--ink);padding
     x.restore();
     x.beginPath();x.arc(W/2,W/2,46,0,7);x.fillStyle='#FFF6D6';x.fill();x.lineWidth=6;x.strokeStyle='#14121F';x.stroke();
   }
+  var order=[],total=0;
+  function renderOrder(){
+    var ol=$('wOrder');ol.innerHTML='';
+    order.forEach(function(n,i){
+      var li=document.createElement('li'),b=document.createElement('b');
+      b.textContent=i+1;li.appendChild(b);li.appendChild(document.createTextNode(n));ol.appendChild(li);
+    });
+  }
+  function wheelState(){
+    var left=wn.length;
+    $('whT').textContent=left?('الفئة '+(order.length+1)+' من '+total):'الترتيب واجد ✓';
+    $('wbox').hidden=!left;$('spinBtn').hidden=!left;$('goBtn').hidden=!!left;$('whBack').hidden=false;
+    if(left)drawWheel();
+  }
   function openWheel(names){
-    wn=names;wrot=0;wbusy=false;$('whRes').textContent='';
-    $('spinBtn').hidden=false;$('whBack').hidden=false;
-    $('whT').textContent=($('n0').value.trim()||'الفريق الأول')+' كيدور العجلة';
-    $('setup').hidden=true;$('wheel').hidden=false;drawWheel();
+    wn=names.slice();order=[];total=names.length;wrot=0;wbusy=false;
+    $('whRes').textContent='';renderOrder();
+    $('setup').hidden=true;$('wheel').hidden=false;wheelState();
   }
   function doSpin(){
-    if(wbusy)return;wbusy=true;$('spinBtn').hidden=true;$('whBack').hidden=true;
+    if(wbusy||!wn.length)return;wbusy=true;$('spinBtn').hidden=true;$('whBack').hidden=true;
     var n=wn.length,a=2*Math.PI/n,idx=Math.floor(Math.random()*n);
     var target=-Math.PI/2-(idx+.5)*a,from=wrot;
     var delta=(((target-from)%(2*Math.PI))+2*Math.PI)%(2*Math.PI)+2*Math.PI*(5+Math.floor(Math.random()*3));
-    var t0=performance.now(),D=4800,last=-1;
+    var t0=performance.now(),D=4200,last=-1;
     (function f(now){
       var p=Math.min(1,(now-t0)/D),e=1-Math.pow(1-p,3);
       wrot=from+delta*e;drawWheel();
       var sg=Math.floor(wrot/a);if(sg!==last){last=sg;beep(600,.03,'triangle')}
       if(p<1)requestAnimationFrame(f);
-      else{$('whRes').textContent='🎯 '+wn[idx];beep(880,.15);setTimeout(function(){$('wheel').hidden=true;begin(wn[idx])},1600)}
+      else{
+        var nm=wn[idx];$('whRes').textContent='🎯 '+nm;beep(880,.15);
+        order.push(nm);renderOrder();
+        setTimeout(function(){
+          wn.splice(idx,1);wrot=0;
+          if(wn.length===1){order.push(wn[0]);wn=[];renderOrder()}
+          $('whRes').textContent='';wbusy=false;wheelState();
+        },1300);
+      }
     })(t0);
   }
+  function startSeq(){if($('wheel').hidden||wbusy||wn.length)return;$('wheel').hidden=true;begin(order.slice())}
+  $('goBtn').onclick=startSeq;
   $('spinBtn').onclick=doSpin;
   $('whBack').onclick=function(){$('wheel').hidden=true;$('setup').hidden=false};
   document.addEventListener('keydown',function(e){
-    if(!$('wheel').hidden&&(e.key===' '||e.key==='Enter')){e.preventDefault();doSpin()}
+    if(!$('wheel').hidden&&(e.key===' '||e.key==='Enter')){e.preventDefault();if(!$('goBtn').hidden)startSeq();else doSpin()}
   });
   
   $("veil").addEventListener("pointerdown",function(){
@@ -489,6 +544,7 @@ kbd{display:inline-block;background:var(--y);border:3px solid var(--ink);padding
     if(m==="ok"&&S.phase==="run")correct();
     else if(m==="skip"&&S.phase==="run")pass();
     else if(m==="go"&&S.phase!=="idle"&&S.phase!=="over")go();
+    else if(m==="nc"&&S.phase!=="idle"&&S.phase!=="over")nextCat();
   }
   $("hostPair").onclick=function(){
     $("pairErr").textContent="";
@@ -521,7 +577,7 @@ kbd{display:inline-block;background:var(--y);border:3px solid var(--ink);padding
       linked=false;$("linkState").textContent="الربط تقطع. الجوال يعاود يدخل نفس الكود.";$("pairHost").hidden=false;return;
     }
     var it=S.items[S.i];
-    var j=JSON.stringify({n:S.names,t:S.t.map(function(x){return Math.max(0,Math.ceil(x))}),sc:S.sc,cur:S.cur,ph:S.phase,a:(it&&S.phase!=="idle")?it.ans:""});
+    var j=JSON.stringify({n:S.names,t:S.t.map(function(x){return Math.max(0,Math.ceil(x))}),sc:S.sc,cur:S.cur,ph:S.phase,a:(it&&S.phase!=="idle")?it.ans:"",c:(S.seq&&S.seq[S.ci]?S.seq[S.ci].name:""),ci:(S.ci||0)+1,cn:S.seq?S.seq.length:0});
     if(j!==lastJ||now-lastT>2000){lastJ=j;lastT=now;pubState(j)}
   },300);
 
@@ -535,6 +591,8 @@ kbd{display:inline-block;background:var(--y);border:3px solid var(--ink);padding
       return (d.cur===k&&d.ph!=="idle"?"◀ ":"")+x+": "+Math.floor(d.t[k]/60)+":"+String(d.t[k]%60).padStart(2,"0")+" ("+d.sc[k]+")";
     }).join("\n");
     $("rInfo").style.whiteSpace="pre-line";
+    if(d.c)$("rInfo").textContent="📂 "+d.c+" ("+d.ci+"/"+d.cn+")\n"+$("rInfo").textContent;
+    $("bRNext").hidden=!(d.cn>1&&d.ci<d.cn);
     $("rAns").textContent=d.a;
     $("bRGo").textContent={idle:"تسنى الحاسوب",ready:"ابدأ",run:"وقف",pause:"كمّل",over:"سالات"}[d.ph]||"…";
   }
@@ -585,7 +643,7 @@ kbd{display:inline-block;background:var(--y);border:3px solid var(--ink);padding
   };
 
   function rtap(id,m){$(id).addEventListener("pointerdown",function(e){e.preventDefault();send(m)})}
-  rtap("bROk","ok");rtap("bRSkip","skip");rtap("bRGo","go");
+  rtap("bROk","ok");rtap("bRSkip","skip");rtap("bRGo","go");rtap("bRNext","nc");
 
   document.addEventListener("keydown",function(e){
     if($("game").hidden)return;
